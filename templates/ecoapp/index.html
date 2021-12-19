@@ -1,0 +1,25 @@
+{% extends 'ecoapp/base.html' %}
+
+{% block title %}products{% endblock title%}
+
+{% block core %}
+
+{% for p in product %}
+
+<ul>{{p.title}}</ul>
+<img src="{{p.image.url}}" alt="">
+
+{% endfor%}
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+

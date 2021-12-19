@@ -1,0 +1,30 @@
+{% extends 'ecoapp/base.html' %}
+{% load widget_tweaks %}
+{% block core %}
+<form action="" method="post" novalidate>
+    {% csrf_token %}
+    {% for fields in form %}
+    <div class="form-group">
+        {{field.label_tag}}
+
+        {% if form.is bound %}
+        {% if field.error %}
+
+        {% render_field field class = "form-control is-invalid" %}
+        {% for error in fields.errors %}
+        <div class="invalid-feedback">{{error}}</div>
+        {% endfor %}
+        {% else %}
+        {% render_field field class = "form-control is-valid" %}
+        {% endif%}
+        {% render_field field class = "form-control"%}
+    </div>
+    {% if field.help_text %}
+    <small class="form-text text-muted">{{ field.help_text}}</small>
+    {% endif %}
+
+    {% endfor %}
+    <button type="submit" class="btn btn-success">add new product</button>
+</form>
+{% endblock %}
+

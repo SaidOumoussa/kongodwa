@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% block content%}
+<h1>product</h1>
+
+
+  <div class="row">
+      {% for p in products %}
+    <div class=" col-md-6 col-lg-4">
+      <div class="card">
+         <img class="card- img-top" src="{{p.image.url}}" alt="{{p.title}}" width="50%">
+        <div class="card-body">
+          <h5 class="card-title"><a href="#">{{ p.title }}</a></h5>
+          <p class="card-text"><b>price : </b>{{ p.price }}</p>
+          <p class="card-text"><b>stock : </b>{{ p.stock }}</p>
+          <button type="submit" class="btn btn-success">add to cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+
+
+{% endblock%}
